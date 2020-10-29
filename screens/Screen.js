@@ -1,23 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, StatusBar } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-export default class Screen extends React.Component{
+export default class Screen extends React.Component {
     render() {
         return (
             <View styles={styles.container}>
-                <SafeAreaView style={{ flex: 1 }}>
+                <StatusBar backgroundColor='#161924' animated={true}>
+
+                </StatusBar>
+
+                <SafeAreaView style={{ flex: 0, backgroundColor: '#0072A0' }}>
                     <TouchableOpacity
-                    style={{ alignItems: "flex-end", margin: 16 }}
-                    onPress={this.props.navigation.openDrawer}
+                        style={{ alignItems: "flex-start", margin: 16 }}
+                        onPress={this.props.navigation.openDrawer}
                     >
                         <FontAwesome5 name='bars' size={24} color='#161924' />
                     </TouchableOpacity>
-                    <View style={{ flex: 1,alignItems:'center', justifyContent: 'center' }}>
-                        <Text style={ styles.text }>{this.props.name} Screen</Text>
-                    </View>
+
                 </SafeAreaView>
+                <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', margin: 40 }}>
+                    <Text style={styles.text}>{this.props.name} Screen</Text>
+                </View>
             </View>
+            
         );
     }
 }
